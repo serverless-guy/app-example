@@ -2,13 +2,13 @@ import * as joi from "joi"
 import { joiValidationErrorWrapper } from "@utils/joiValidationErrorWrapper"
 
 const addUserSchema = joi.object().keys({
-  // name:     joi.string(),
-  // username: joi.string(),
-  // email:    joi.string().email(),
-  // address:  joi.any(),
-  // phone:    joi.string(),
-  // website:  joi.string(),
-  // company:  joi.any()
+  name:     joi.string(),
+  username: joi.string(),
+  email:    joi.string().email(),
+  address:  joi.any(),
+  phone:    joi.string(),
+  website:  joi.string(),
+  company:  joi.any()
 })
 
 /**
