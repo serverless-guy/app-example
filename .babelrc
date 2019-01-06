@@ -11,12 +11,8 @@
       "root": ["./src", "./test"],
       "alias": {
         "@errors": "./src/errors",
-        "@models": "./src/models",
         "@requests": "./src/requests",
-        "@responses": "./src/responses",
-        "@utils": "./src/utils",
-        "@validations": "./src/validations",
-        "@workers": "./src/workers"
+        "@utils": "./src/utils"
       }
     }]
   ]
