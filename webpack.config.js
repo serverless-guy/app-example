@@ -39,11 +39,7 @@ module.exports = {
     alias: {
       "@errors": srcPath("errors"),
       "@utils": srcPath("utils"),
-      "@models": srcPath("models"),
-      "@requests": srcPath("requests"),
-      "@responses": srcPath("responses"),
-      "@workers": srcPath("workers"),
-      "@validations": srcPath("validations")
+      "@requests": srcPath("requests")
     }
   },
   output: {
