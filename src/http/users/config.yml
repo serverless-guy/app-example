@@ -1,0 +1,20 @@
+getUsers:
+  handler: src/http/users/get.handler
+  memorySize: 1024
+  timeout: 30
+  events:
+    - http:
+        cors:
+          origin: '*'
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - X-API-Version
+            - x-api-version
+          allowCredentials: false
+        method: get
+        path: api/v1/users

@@ -1,0 +1,36 @@
+service: app-example
+
+package:
+  individually: true
+
+plugins:
+  - serverless-offline
+  - serverless-webpack
+  - serverless-prune-plugin
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-1
+  logRetentionInDays: 365
+  stage: ${opt:stage, 'test'}
+  environment: ${file(env.yml):${self:custom.stage}}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - lambda:InvokeFunction
+      Resource:
+        - "*"
+
+custom:
+  stage: ${self:provider.stage}
+  prune:
+    automatic: true
+    number: 3
+  webpack:
+    includeModules:
+      forceExclude:
+        - aws-sdk
+
+functions:
+  - ${ file(./src/http/users/config.yml) }
