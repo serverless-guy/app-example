@@ -2,12 +2,13 @@ import { lambdaWrapper } from "@serverless-guy/lambda"
 import { errorHandler } from "@utils/errorHandler"
 import { GenericError } from "@errors/GenericError"
 
-export function httpWrapper(lambdaFunc) {
+export function httpWrapper(lambdaFunc, ...additionalMiddlewares) {
   return lambdaWrapper(
     lambdaFunc,
     errorHandler,
     logParams,
-    maintenanceMiddleware
+    maintenanceMiddleware,
+    ...additionalMiddlewares
   )
 }
 

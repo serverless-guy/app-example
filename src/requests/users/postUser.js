@@ -1,14 +1,10 @@
-import { get } from "axios"
+import { post } from "axios"
 import { GenericError } from "@errors/GenericError"
 
 const url = "https://jsonplaceholder.typicode.com/users"
 
-export function getUsers(userId) {
-  if (!userId) {
-    return get(url).then(({ data }) => data)
-  }
-
-  return get(url + "/" + userId).then(({ data }) => data).catch((e) => {
+export function postUser(user) {
+  return post(url, user).then(({ data }) => data).catch((e) => {
     throw new GenericError({
       status: e.response.status,
       message: e.message

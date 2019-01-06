@@ -12,3 +12,7 @@ This is a simple app using `@serverless-guy/lambda` library.
   
 Maintenance mode can be controlled inside `env.yml` by assigning "YES" or "NO" value to maintenance_mode key.  
   
+# Developer's Note:  
+  
+Please note that, in the example, it is using jsonplaceholder as API, some data may or will not be saved if you're to use `POST` endpoint.
+  

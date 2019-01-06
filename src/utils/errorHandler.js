@@ -6,11 +6,17 @@ export function errorHandler(event, error) {
     errorCode: error.name
   }
 
-  if (error.severity !== "warn" && error.code !== 503) {
+  console.log(error.severity)
+
+  if (error.severity !== "warn") {
     log.errorStack = error.stack
   }
 
-  console[error.severity || "warn"](log)
+  if (error.params && error.params.length >= 1) {
+    log.parameters = error.params
+  }
+
+  console[error.severity || "error"](log)
 
   return responser(log, error.code)
 }

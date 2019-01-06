@@ -12,6 +12,7 @@
       "alias": {
         "@errors": "./src/errors",
         "@requests": "./src/requests",
+        "@validations": "./src/validations",
         "@utils": "./src/utils"
       }
     }]
