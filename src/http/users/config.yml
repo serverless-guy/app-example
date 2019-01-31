@@ -2,6 +2,8 @@ getUsers:
   handler: src/http/users/get.handler
   memorySize: 1024
   timeout: 30
+  layers:
+    - { Ref: DependencyLayerLambdaLayer }
   events:
     - http:
         cors:
@@ -23,6 +25,8 @@ postUser:
   handler: src/http/users/post.handler
   memorySize: 1024
   timeout: 30
+  layers:
+    - { Ref: DependencyLayerLambdaLayer }
   events:
     - http:
         cors:

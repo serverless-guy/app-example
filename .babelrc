@@ -2,19 +2,23 @@
   "presets": [
     "@babel/preset-env"
   ],
-  "ignore": [
-    "./node_modules"
-  ],
   "plugins": [
     "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-async-to-generator",
     ["module-resolver", {
       "root": ["./src", "./test"],
       "alias": {
         "@errors": "./src/errors",
+        "@utils": "./src/utils",
+        "@middlewares": "./src/middlewares",
+        "@models": "./src/models",
+        "@workers": "./src/workers",
         "@requests": "./src/requests",
+        "@responses": "./src/responses",
         "@validations": "./src/validations",
-        "@utils": "./src/utils"
+        "@messages": "./src/messages"
       }
     }]
-  ]
+  ],
+  "ignore": ["./node_modules", "./layers/dependencies/nodejs/node_modules"]
 }

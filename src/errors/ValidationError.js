@@ -7,8 +7,6 @@ export class ValidationError extends Error {
 
   severity = "warn"
 
-  details = []
-
   params = []
 
   constructor(...args) {

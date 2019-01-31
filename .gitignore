@@ -1,7 +1,14 @@
+.DS_Store
+.idea
 .nyc_output
-.webpack
 .serverless
+.vscode
+.webpack
 coverage
+layers/dependencies/nodejs/node8/node_modules
+layers/dependencies/nodejs/node8/package-lock.json
 node_modules
 test-reports
+typings
 package-lock.json
+tmp
