@@ -1,9 +1,9 @@
-import { lambdaWrapper } from "@serverless-guy/lambda"
+import { wrapper } from "@serverless-guy/lambda"
 import { errorHandler } from "@utils/errorHandler"
 import { GenericError } from "@errors/GenericError"
 
 export function httpWrapper(lambdaFunc, ...additionalMiddlewares) {
-  return lambdaWrapper(
+  return wrapper(
     lambdaFunc,
     errorHandler,
     logParams,
@@ -12,15 +12,19 @@ export function httpWrapper(lambdaFunc, ...additionalMiddlewares) {
   )
 }
 
-function logParams(event, context) {
+function logParams(request, next) {
+  const { event, context } = request
+
   console.log({
     body: event.body ? JSON.parse(event.body) : undefined,
     pathParams: event.pathParameters,
     queryString: event.queryStringParameters
   })
+
+  return next()
 }
 
-function maintenanceMiddleware(event, context) {
+function maintenanceMiddleware(request, next) {
   const isOnMaintenance = process.env.maintenance_mode === "YES" ? true : false
 
   if (isOnMaintenance) {
@@ -35,4 +39,6 @@ function maintenanceMiddleware(event, context) {
       status: 503
     })
   }
+
+  return next()
 }
