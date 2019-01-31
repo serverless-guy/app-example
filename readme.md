@@ -16,3 +16,7 @@ Maintenance mode can be controlled inside `env.yml` by assigning "YES" or "NO" v
   
 Please note that, in the example, it is using jsonplaceholder as API, some data may or will not be saved if you're to use `POST` endpoint.
   
+# Issues:  
+  
+* unable to run lambda locally due to misconfiguration
+* some libraries/modules may not work on unit test
