@@ -6,7 +6,7 @@ This is a simple app using `@serverless-guy/lambda` library.
   
 * clone this repository
 * cd to the project repo and run `npm i`
-* run `npm run dev`
+* run `serverless deploy --stage <stage_name>`
 
 # Setting Maintenance mode  
   
