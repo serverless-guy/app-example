@@ -21,25 +21,26 @@ getUsers:
         method: get
         path: api/v1/users
 
-postUser:
-  handler: src/http/users/post.handler
-  memorySize: 1024
-  timeout: 30
-  layers:
-    - { Ref: DependencyLayerLambdaLayer }
-  events:
-    - http:
-        cors:
-          origin: '*'
-          headers:
-            - Content-Type
-            - X-Amz-Date
-            - Authorization
-            - X-Api-Key
-            - X-Amz-Security-Token
-            - X-Amz-User-Agent
-            - X-API-Version
-            - x-api-version
-          allowCredentials: false
-        method: post
-        path: api/v1/users
+# temporarily remove post as it contains joi
+# postUser:
+#   handler: src/http/users/post.handler
+#   memorySize: 1024
+#   timeout: 30
+#   layers:
+#     - { Ref: DependencyLayerLambdaLayer }
+#   events:
+#     - http:
+#         cors:
+#           origin: '*'
+#           headers:
+#             - Content-Type
+#             - X-Amz-Date
+#             - Authorization
+#             - X-Api-Key
+#             - X-Amz-Security-Token
+#             - X-Amz-User-Agent
+#             - X-API-Version
+#             - x-api-version
+#           allowCredentials: false
+#         method: post
+#         path: api/v1/users
