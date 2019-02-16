@@ -79,7 +79,6 @@ module.exports = {
     occurrenceOrder: true
   },
   externals: [
-    nodeExt(),
-    ...getDependencies()
+    nodeExt()
   ]
 };
