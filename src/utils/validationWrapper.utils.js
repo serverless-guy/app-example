@@ -1,6 +1,6 @@
-import { ValidationError } from "@errors/ValidationError"
+import { ValidationError } from "@errors/validation.error"
 
-export function joiValidationErrorWrapper(error) {
+export function validationWrapper(error) {
   const details = error.details.map((detail) => detail.message)
   const params  = error.details.map((detail) => ({
     param: detail.context.key,

@@ -10,7 +10,7 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs10.x
   region: eu-west-1
   logRetentionInDays: 365
   stage: ${opt:stage, 'test'}
@@ -22,15 +22,6 @@ provider:
       Resource:
         - "*"
 
-layers:
-  dependencyLayer:
-    path: "layers/dependencies"
-    name: ${self:provider.stage}-dependencyLayer
-    compatibleRuntimes:
-      - nodejs8.10
-    allowedAccounts:
-      - "*"
-
 custom:
   stage: ${self:provider.stage}
   prune:
@@ -40,4 +31,4 @@ custom:
     includeModules: false
 
 functions:
-  - ${ file(./src/http/users/config.yml) }
+  - ${ file(./src/handlers/http/users/config.yml) }

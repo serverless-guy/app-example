@@ -1,5 +1,5 @@
 import { httpWrapper } from "@utils/httpWrapper"
-import { getUsers } from "@requests/users/getUsers"
+import { getUsers } from "@requests/users/getUsers.request"
 
 export const handler = httpWrapper(get)
 

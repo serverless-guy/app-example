@@ -1,5 +1,5 @@
 import { post } from "axios"
-import { GenericError } from "@errors/GenericError"
+import { GenericError } from "@errors/generic.error"
 
 const url = "https://jsonplaceholder.typicode.com/users"
 

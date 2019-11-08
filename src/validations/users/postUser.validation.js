@@ -16,6 +16,6 @@ const addUserSchema = joi.object().keys({
  * @param data data from /code/sync endpoint
  * @return object
  */
-export function newUserValidation(data) {
+export function postUserValidation(data) {
   return joi.validate(data, addUserSchema, { abortEarly: false }).catch(joiValidationErrorWrapper)
 }

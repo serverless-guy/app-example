@@ -1,5 +1,5 @@
-import { ExternalAPIClientException } from "@errors/ExternalAPIClientException"
-import { ExternalAPIInternalServerException } from "@errors/ExternalAPIInternalServerException"
+import { ExternalAPIClientException } from "@errors/api4xx.error"
+import { ExternalAPIInternalServerException } from "@errors/api5xx.error"
 import axios from "axios"
 
 /**

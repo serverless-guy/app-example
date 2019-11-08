@@ -1,31 +1,29 @@
-import { wrapper } from "@serverless-guy/lambda"
-import { errorHandler } from "@utils/errorHandler"
-import { GenericError } from "@errors/GenericError"
+import { GenericError } from "@errors/generic.error";
+import { wrapper } from "@serverless-guy/lambda";
 
-export function httpWrapper(lambdaFunc, ...additionalMiddlewares) {
-  return wrapper(
-    lambdaFunc,
-    errorHandler,
-    logParams,
-    maintenanceMiddleware,
-    ...additionalMiddlewares
-  )
+export function httpWrapper(handlerFn) {
+  const realHandler = wrapper(handlerFn);
+
+  realHandler.pushMiddleware(logParams);
+  realHandler.pushMiddleware(maintenanceMode);
+
+  return realHandler;
 }
 
 function logParams(request, next) {
-  const { event, context } = request
+  const { event } = request;
 
   console.log({
     body: event.body ? JSON.parse(event.body) : undefined,
     pathParams: event.pathParameters,
     queryString: event.queryStringParameters
-  })
+  });
 
-  return next()
+  return next(request);
 }
 
-function maintenanceMiddleware(request, next) {
-  const isOnMaintenance = process.env.maintenance_mode === "YES" ? true : false
+function maintenanceMode(request, next) {
+  const isOnMaintenance = process.env.maintenance_mode === "YES" ? true : false;
 
   if (isOnMaintenance) {
     throw new GenericError({
@@ -38,7 +36,7 @@ function maintenanceMiddleware(request, next) {
       ],
       status: 503
     })
-  }
+  };
 
-  return next()
+  return next(request);
 }
