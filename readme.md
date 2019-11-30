@@ -1,4 +1,7 @@
 # @serverless-guy/lambda example  
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/serverless-guy/app-example.svg)](https://greenkeeper.io/)
+
   
 This is a simple app using `@serverless-guy/lambda` library.
 
